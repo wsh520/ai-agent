@@ -31,6 +31,14 @@ langchain4j:
       log-requests: true
       log-responses: true
 
+  # 接入阿里百炼平台
+  community:
+    dashscope:
+      chat-model:
+        api-key: ${ALI_BAILIAN_TOKEN}
+        model-name: qwen-max
+
+
 logging:
   level:
     root: debug
