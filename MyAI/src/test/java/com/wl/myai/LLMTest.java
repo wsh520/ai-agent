@@ -33,7 +33,7 @@ public class LLMTest {
     }
 
     /**
-     * 整合SpringBoot
+     * 整合SpringBoot 可接入 openAI,deepseek,阿里云百炼deepseek
      */
     @Autowired
     private OpenAiChatModel openAiChatModel;
@@ -77,6 +77,10 @@ public class LLMTest {
 
     @Value("${langchain4j.community.dashscope.chat-model.api-key}")
     private String apiKey;
+
+    /**
+     * 通义万象 文生图
+     */
     @Test
     public void testDashScopeWanx() {
         WanxImageModel wanxImageModel = WanxImageModel.builder()
