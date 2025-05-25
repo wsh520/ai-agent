@@ -18,10 +18,19 @@ langchain4j:
 #      timeout: 60s
        base-url: https://api.deepseek.com
        api-key: ${DEEP_SEEK_TOKEN}
-       model-name: deepseek-chat
+#       model-name: deepseek-chat
+       model-name: deepseek-reasoner # R1 推理模型
        log-requests: true
        log-responses: true
        timeout: 60s
+  # 接入本地 ollama deepseek
+  ollama:
+    chat-model:
+      base-url: http://localhost:11434
+      model-name: deepseek-r1:1.5b
+      log-requests: true
+      log-responses: true
+
 logging:
   level:
     root: debug
