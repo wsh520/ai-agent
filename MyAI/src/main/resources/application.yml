@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: MyAI
+  config:
+    import: optional:classpath:.env[.properties]
+server:
+  port: 8080
+
+langchain4j:
+  open-ai:
+    chat-model:
+# OPen AI Test
+#      base-url: http://langchain4j.dev/demo/openai/v1
+#      api-key: demo
+#      model-name: gpt-4o-mini
+#      log-requests: true
+#      log-responses: true
+#      timeout: 60s
+       base-url: https://api.deepseek.com
+       api-key: ${DEEP_SEEK_TOKEN}
+       model-name: deepseek-chat
+       log-requests: true
+       log-responses: true
+       timeout: 60s
+logging:
+  level:
+    root: debug
+
+
