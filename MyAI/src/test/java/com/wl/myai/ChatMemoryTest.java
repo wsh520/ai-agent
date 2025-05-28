@@ -97,7 +97,6 @@ public class ChatMemoryTest {
         System.out.println(result2);
         String result3 = separateChatAssistant.chat(2, "我是谁？");
         System.out.println(result3);
-
     }
 
 
