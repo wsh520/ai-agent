@@ -1,6 +1,7 @@
 package com.wl.myai.service;
 
 import dev.langchain4j.service.MemoryId;
+import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.spring.AiService;
 import dev.langchain4j.service.spring.AiServiceWiringMode;
@@ -12,5 +13,7 @@ import dev.langchain4j.service.spring.AiServiceWiringMode;
 public interface SeparateChatAssistant {
 
     // 只有一个参数的时候，@UserMessage注解可以省略
+//    @SystemMessage("你是我的好朋友，请用东北话回答问题。今天是{{current_date}}") // 系统提示词，类似于最开始使用AI时要给一个身份设定
+    @SystemMessage(fromResource = "systemMessage.txt")
     String chat(@MemoryId int memoryId, @UserMessage String userMessage);
 }
