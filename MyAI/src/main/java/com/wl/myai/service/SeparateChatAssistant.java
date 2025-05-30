@@ -10,7 +10,9 @@ import dev.langchain4j.service.spring.AiServiceWiringMode;
 @AiService(wiringMode = AiServiceWiringMode.EXPLICIT,
         chatModel = "qwenChatModel",
         chatMemory = "chatMemory",
-        chatMemoryProvider = "chatMemoryProvider")
+        chatMemoryProvider = "chatMemoryProvider"
+        ,tools = "calculatorTools"
+)
 public interface SeparateChatAssistant {
 
     // 只有一个参数的时候，@UserMessage注解可以省略
