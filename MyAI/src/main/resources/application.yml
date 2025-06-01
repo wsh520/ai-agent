@@ -33,6 +33,7 @@ langchain4j:
       api-key: ${ALI_BAILIAN_TOKEN}
       model-name: deepseek-v3
 #      log-requests: true
+
 #      log-responses: true
       timeout: 60s
       #温度系数：取值范围通常在 0 到 1 之间。值越高，模型的输出越随机、富有创造性；
@@ -52,7 +53,9 @@ langchain4j:
       chat-model:
         api-key: ${ALI_BAILIAN_TOKEN}
         model-name: qwen-max
-
+      streaming-chat-model:
+        api-key: ${ALI_BAILIAN_TOKEN}
+        model-name: qwen-plus
 
 #logging:
 #  level:
