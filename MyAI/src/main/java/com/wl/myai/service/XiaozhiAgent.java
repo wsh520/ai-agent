@@ -11,7 +11,10 @@ import reactor.core.publisher.Flux;
         streamingChatModel = "qwenStreamingChatModel",
         chatMemory = "chatMemory",
         chatMemoryProvider = "chatMemoryProviderXiaozhi",
-        tools = "appointmentTools")
+        tools = "appointmentTools",
+//        contentRetriever = "contentRetriever" ,// 使用内存存储向量数据
+        contentRetriever = "contentRetrieverXiaozhiPinecone" // 使用pinecone存储向量数据
+) // 添加内容检索工具
 public interface XiaozhiAgent {
 
     @SystemMessage(fromResource = "xiaozhi-prompt-template.txt")

@@ -19,7 +19,11 @@ public class EmbeddingStoreConfig {
     @Value("${PINECONE_KEY}")
     private String pineconeKey;
 
-    @Bean
+    /**
+     * 创建向量存储,pinecone
+     * @return
+     */
+    @Bean(name = "embeddingStore")
     public EmbeddingStore<TextSegment> embeddingStore() {
         //创建向量存储
         EmbeddingStore<TextSegment> embeddingStore = PineconeEmbeddingStore.builder()
