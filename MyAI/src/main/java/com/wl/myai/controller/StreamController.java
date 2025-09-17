@@ -3,8 +3,10 @@ package com.wl.myai.controller;
 import com.wl.myai.service.StreamAssistant;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.annotation.Resource;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
@@ -15,9 +17,10 @@ public class StreamController {
     @Resource
     private StreamAssistant streamAssistant;
 
-    @Operation(summary = "对话")
-    @GetMapping(value = "/chat", produces = "text/stream;charset=utf-8") // 设置响应类型为流式文本，并指定字符集为UTF-8
-    public Flux<String> chat() {
-        return streamAssistant.chat("1+2等于几，322233222345的平方根是多少？");
+    @Operation(summary = "对话流(原始模型片段)")
+    @GetMapping(value = "/chat", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<String> chat(@RequestParam String chatMessage) {
+        // 直接返回模型流式输出片段（千问已按 token/片段拆好）
+        return streamAssistant.chat(chatMessage);
     }
 }
